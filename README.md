@@ -1,12 +1,19 @@
-# Building a Responsive Layout with CSS Flexbox 
-## Problem Statement 
-Using CSS to create a website that looks good to as many users as possible can
+# Building a Responsive Layout with CSS Flexbox Lab
+
+## Learning Goals
+
+- Create a flexbox container
+- Identify flexbox properties
+
+## Introduction
+
+Using CSS to create a website that looks good for as many users as possible can
 be a challenge. Your webpage may look great on the screen you designed it on,
 but if you open the page up on a small laptop, suddenly the page content is
 squeezed, spilling over, or pushed out of place. If you open that same page
 on a larger monitor, you might see excess empty space.
 
-However, CSS has some powerful solutions for this. In this lesson we will
+However, CSS has some powerful solutions for this. In this lesson, we will
 be discussing one of them: flexbox.
 
 Flexbox makes it easier to build page layouts that are dynamic. As the
@@ -20,14 +27,10 @@ In this lesson, we will discuss some of the common ways to use flexbox and the
 associated properties you can use while coding through some examples. Feel free
 to code along using the provided `index.html` and `index.css` files. You can
 test out your page by either running `httpserver` if you are using the
-in-browser Learn IDE, or by right clicking the `index.html` in Finder and
+in-browser Learn IDE or by right-clicking the `index.html` in Finder and
 opening it in a browser.
 
-## Objectives
-1. Setting up a Flex Container
-2. Identify and Use Flex Properties
-
-## Setting Up a Flex Container
+## Setting Up a Flexbox Container
 
 In order to use flexbox properties, we must first define a container where we
 want flexbox to apply. In `index.html`, we've already defined some HTML in the
@@ -51,10 +54,11 @@ also set width and height to the full size of the window using `100vw`, and
 }
 ```
 
-## Identify and Use Flex Properties
+## Identify and Use Flexbox Properties
+
 Save `index.css` and check out `index.html` in your browser. Cool! We're taking
 some inspiration from nature today, and going with colors that look like you're
-oceanside. Looks like we're on our way! If you inspect the page, you'll see that
+oceanside. It looks like we're on our way! If you inspect the page, you'll see that
 the three sections displayed are actually our `<header>`, `<main>` and
 `<footer>` elements. Note, too, that the three sections are evenly dividing the
 page. If you resize your browser window, the three sections will stay evenly
@@ -66,7 +70,7 @@ However, we've got a small issue--it doesn't make much sense to have a
 and bottom of our page. We'll need to add one more line of CSS for this using
 `flex-direction`.
 
-#### `flex-direction`
+### `flex-direction`
 
 By default, flexbox will display content horizontally. If we want to change
 this, we'll need to define a direction. In `index.css`, add the following line
@@ -89,7 +93,7 @@ The `flex-direction` property has a few setting options:
 Switching `flex-direction` to the `column-reverse` setting, for instance, will
 put our pale blue `<footer>` on top, and our ivory `<header>` on the bottom.
 
-We'll go ahead and keep the setting as `column` so our elements are in logical
+We'll go ahead and keep the setting as `column` so our elements are in a logical
 order, but our `<header>` and `<footer>` sections are quite large. Go back into
 `index.css`, and in the `header` block, change the `height` property to `10%`,
 then check the page out in your browser.
@@ -101,11 +105,11 @@ container, which, in this case, is the height of our window.
 
 It likely makes more sense to set a specific height to `<header`>, as it will most
 often contain navigation and a website logo that we want to keep at a consistent
-height. Similarly, footers usually contain static links and information, so we will
+height. Similarly, footers usually contain static links and information so we will
 set the height property in the `header` and `footer` CSS blocks to `80px`.
 
 Refresh the page and you'll see the effect: The `<main>` section will display as
-turqoise and tke up the majority of the page. If you shrink the height of your browser
+turquoise and take up the majority of the page. If you shrink the height of your browser
 window, the height of `<main>` will change significantly. Our `<header>` and
 `<footer>` sections will still adjust in height a little, but we'll take a look
 at preventing that later on. Previously, to create this sort of layout, we would
@@ -116,7 +120,7 @@ container_, applying to all of its children.
 Now that we've set up a basic layout using flexbox, we can go deeper into some
 of its cool properties.
 
-#### `flex-wrap`
+### `flex-wrap`
 
 Let's display a series of items in the `<main>` section of our page. Make six
 `<div>` elements inside of `<main>` and assign them a class name 'item', adding
@@ -165,8 +169,7 @@ Now, if you refresh the browser, grow and shrink the window, the boxes will stay
 space to fit! The `flex-wrap` property defines how items in a flex container
 handle positioning when there are too many items to fit the space. By default,
 `flex-wrap` is set to `nowrap`, which is what we saw initially. You can also try
-changing `flex-wrap` to `wrap-reverse`, which will act similar to `wrap`, except
-from the _bottom and up_, instead of top and down. We'll keep the property set
+changing `flex-wrap` to `wrap-reverse`, which will act similar to `wrap`, except the _bottom and up_, instead of top and down. We'll keep the property set
 to `wrap` for now, though.
 
 Let's add in the previous property we discussed, `flex-direction`. If you add
@@ -174,7 +177,7 @@ Let's add in the previous property we discussed, `flex-direction`. If you add
 items, but instead of in a new line underneath, the items will appear in a new
 _column_ to the right of the first.
 
-#### `flex-flow`
+### `flex-flow`
 
 In our CSS block labeled `main`, we've now got `flex-direction` and `flex-wrap`
 defined. These two properties often go hand in hand, so CSS provides a shorthand
@@ -195,7 +198,7 @@ positioning of the child divs with these two lines of CSS for the parent. For
 the next section, switch the direction back to `row` (so, either `flex-flow: row
 wrap;`, or just `flex-flow: wrap;`).
 
-#### justify-content
+### justify-content
 
 Now that we've got wrapping and direction set up, we can define where we want
 items positioned in more detail. The first property we will look at is
@@ -221,7 +224,7 @@ the default setting, so we've actually already seen what this looks like.
 * `flex-end` - aligns all elements to the end of the flex container. If you apply
 this setting, our pink boxes will align to the right side of the screen.
 However, if the page shrinks, the last flex elements will still wrap to the next
-row, so order is preserved.
+row, so the order is preserved.
 * `space-around` - adds space in between each flex element so they fill the space
 they are in, evenly dividing the row and centering each element in each
 division. This white space in between will shrink as the page shrinks, and items
@@ -235,11 +238,11 @@ If you change `flex-flow` back to `column wrap`, the flex elements will act the
 same way, _only vertically_, so `justify-content` will apply based on the
 `flex-direction` you've defined.
 
-#### `align-items`
+### `align-items`
 
 Centering vertically is actually fairly non-intuitive using basic CSS. Flexbox
 provides a solution, though, in the `align-items` property. In the `main` CSS
-block, make sure `flex-flow` is set to `row wrap` once again, and then add the
+block, make sure `flex-flow` is set to `row wrap` once again and then add the
 following line: 
 ```
 align-items: center;
@@ -271,13 +274,13 @@ justify-content: center;
 align-items: center;
 ```
 
-#### `align-content`
+### `align-content`
 
 The `align-content` property defines how multiple rows of elements will be
 displayed. The effects of `align-content` will not apply if `nowrap` is set, and
 won't be visible until more than one row or column of flex content is present.
 Because of this, it is often best to use `align-content` in conjunction with
-`align-items`, giving you a more nuanced control over the effects of wrapping.
+`align-items`, giving you more nuanced control over the effects of wrapping.
 
 * `center` - centers all rows in the container. Combined with `align-items: center`, this will keep all items and rows grouped together, instead of centering each row independently.
 * `stretch` - similar to `align-items: stretch` when multiple rows are present.
@@ -286,13 +289,13 @@ Because of this, it is often best to use `align-content` in conjunction with
 * `flex-start` - aligns elements to the beginning of the flex container
 * `flex-end` - aligns elements to the end of the flex container
 
-### Setting Up Child Elements with Flex
+## Set Up Child Elements with Flex
 
 So, we've gotten pretty far with flexbox just by defining properties on the
 container, but we can go even further by setting CSS properties within the
 children of the container.
 
-#### `flex-basis`
+### `flex-basis`
 
 So far, we've been setting the size of our child elements in a flex container by
 using the `width` and `height` properties. We can achieve the same effect using
@@ -306,14 +309,14 @@ flex container. Width, in this case, refers to the length of an element in the
 * `flex-basis: --%` - will set the element to a percentage of a container size. Setting `flex-basis` to 50% on one child element, for instance, will cause that child to take up half of a container row. Set to 100%, the child will fill the entire row, causing it to wrap if there are other children in the flex container.
 * `flex-basis: content;` - will set the element's size based on the `width` or `height` properties if they are defined. Otherwise, the element will be sized based on the content inside the element.
 
-#### `flex-grow`
+### `flex-grow`
 
 The `flex-grow` property specifies how much space the element should take up
 within a flex container. By default, `flex-grow` is equal to `0`, meaning
 elements that do not have `flex-grow` specifically defined will not grow larger
 than the `width`, _for rows_, `height`, _for columns_, or `flex-basis` they are
 set to, producing the wrapping effect we've seen so far - all of our child
-elements remain the same size, and spill over into a new line if they don't fit.
+elements remain the same size and spill over into a new line if they don't fit.
 
 Assigning a `flex-grow` value greater than `0` changes this behavior, allowing a
 child element to expand. The higher the number, the more space an element will
@@ -343,17 +346,17 @@ the container size can't fit them in a line, but all elements will expand in
 size to fill any empty space, so if one pink box is on a new line, it fills 100%
 of the space, while all other boxes will fit evenly on their row.
 
-If no divs have a set width, but have `flex-grow` set greater than `0`, elements
+If no divs have a set width but have `flex-grow` set greater than `0`, elements
 _will not_ wrap, instead, shrinking to fit all into one row.
 
-#### `flex-shrink`
+### `flex-shrink`
 
 The `flex-shrink` property determines how much an element in a flex container will
 shrink; the larger the number, the more the element will shrink in relation to
 other elements in the container, with the default set to `1`. To see this in
 action, let's go back to our the first flex container where `<header>`,
 `<main>`, and `<footer>` are the children. Currently, although we've set the
-height of `header` and `footer`, if the page is shortened, these sections will
+height of `header` and `footer` if the page is shortened, these sections will
 still shrink to fit.
 
 In your CSS file, under `header`, add `flex-shrink: 0`, and under `footer`, add
@@ -366,7 +369,7 @@ now cause the `<footer>` to shrink much more than before until it disappears
 entirely. Setting `flex-shrink` to `3` causes the `<footer>` to shrink _3_ times
 as much as normal.
 
-#### `flex`
+### `flex`
 
 Using `flex-grow`, `flex-shrink`, and `flex-basis` in combination allows us to:
 1. Set how much that element expands to fill space
@@ -394,17 +397,17 @@ It is recommended that you use `flex` over the individual `grow`, `shrink` and
 they aren't provided, it is less prone to conflicting behavior. Try assigning
 our pink boxes different values for `flex` to see how they work.
 
-#### `align-self`
+### `align-self`
 
 Flexbox offers a way for us to change individual element positions, in the event
 that we want one or more elements in a flex container to be positioned
 differently than the rest. For instance, if we create a new class, assign
 `align-self` to `flex-end` and add that class to one of our pink boxes, when we
-take a look at it in browser, we will see that while that pink box will remain
+take a look at it in the browser, we will see that while that pink box will remain
 in order relative to other boxes, it will appear at the bottom of the flex
 container, while all others remain at the top.
 
-#### `order`
+### `order`
 
 Flexbox has one property which is slightly different than the rest: `order`. The
 `order` takes in a positive or negative number value, and will cause flex
@@ -427,10 +430,10 @@ users who use assistive technology such as screen readers.
 When you're ready to leave this lab, run `learn` from the command line. If the
 test pass, enter `learn submit`. You'll then be prompted to move on!
 
-### Conclusion
+## Conclusion
 
 That covers all the properties of flexbox, but feel free to continue to practice
-with various settings. It is possible to use flexbox to create very unique page
+with various settings. It is possible to use flexbox to create unique page
 layouts, recreate some of the awesome modern layouts we see (i.g. the dynamic
 columns you see on [pinterest.com](pinterest.com)), or just add a little more
 responsiveness to make your site look good regardless of how big or how small
